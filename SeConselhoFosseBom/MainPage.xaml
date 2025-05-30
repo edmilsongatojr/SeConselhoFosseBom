@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SeConselhoFosseBom.MainPage"
+             BackgroundColor="#f8f8f8"
+             Padding="20">
+
+    <Grid RowDefinitions="Auto,Auto,Auto,*,Auto" ColumnDefinitions="*, Auto">
+
+        <Picker x:Name="pickerIdiomas"
+            Title="Idioma"
+            HorizontalOptions="Start"
+            VerticalOptions="Start"
+            Margin="1,10,0,20"
+            SelectedIndexChanged="pickerIdiomas_SelectedIndexChanged"
+            WidthRequest="150"
+            BackgroundColor="LightGray"
+            Grid.Column="0"
+            />
+
+        <!-- Topo com a data -->
+        <Label x:Name="lblData"
+               Text="Today"
+               HorizontalOptions="Center"
+               FontSize="Subtitle"
+               FontAttributes="Bold"
+               TextColor="#333"
+               Margin="0,40,0,20"
+               HorizontalTextAlignment="Center"
+               Grid.Column="0"
+               Grid.Row="1"/>
+
+        <!-- Texto central -->
+        <StackLayout Grid.Row="3" 
+                     HorizontalOptions="Center"
+                     VerticalOptions="Center"
+                     Margin="10">
+
+            <Label x:Name="lblConselho"
+                   Text="Se conselho fosse bom, seria vendido 😄"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   FontSize="Medium"
+                   TextColor="#666"
+                   HorizontalTextAlignment="Center"
+               />
+            <ActivityIndicator x:Name="loadingIndicator" IsRunning="False" IsVisible="False"/>
+        </StackLayout>
+
+        <!-- Botão na parte de baixo -->
+        <StackLayout Grid.Row="4"
+                     VerticalOptions="End"
+                     HorizontalOptions="Center"
+                     Margin="0,20">
+
+            <Border
+                    BackgroundColor="#3D87CF"
+                    StrokeThickness="0"
+                    Padding="15"
+                    StrokeShape="RoundRectangle 15"
+                    HorizontalOptions="Center">
+
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                </Border.GestureRecognizers>
+
+                <HorizontalStackLayout Spacing="10" VerticalOptions="Center">
+                    <Image Source="lampada.png"
+                           WidthRequest="24"
+                           HeightRequest="24"
+                           VerticalOptions="Center" />
+
+                    <Label x:Name="btnBuscar"
+                           Text="Buscar Conselho"
+                           VerticalTextAlignment="Center"
+                           FontAttributes="Bold"
+                           TextColor="White"/>
+
+                </HorizontalStackLayout>
+            </Border>
+
+
+        </StackLayout>
+    </Grid>
+</ContentPage>
